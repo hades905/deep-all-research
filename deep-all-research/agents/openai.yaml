@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep All Research"
+  short_description: "End-to-end web research into Obsidian notes"
+  default_prompt: "Use $deep-all-research to research this topic deeply and build an Obsidian-ready knowledge folder."
