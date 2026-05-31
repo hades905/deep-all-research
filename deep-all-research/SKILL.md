@@ -1,6 +1,6 @@
 ---
 name: deep-all-research
-description: End-to-end deep web research workflow that turns a user-provided research object into a local Obsidian-ready knowledge folder with multiple Markdown notes, source links, credibility assessment, original downloadable attachments, synthesis, impact analysis, and verification. Use when the user asks to comprehensively research, collect, organize, investigate, map, analyze, or build a knowledge base about any topic, entity, event, technology, policy, product, person, company, market, controversy, or emerging concept.
+description: End-to-end bilingual deep web research workflow that turns a user-provided research object into a local Obsidian-ready knowledge folder with multiple Markdown notes, source links, credibility assessment, original downloadable attachments, synthesis, impact analysis, and verification. Use when the user asks to comprehensively research, collect, organize, investigate, map, analyze, or build a knowledge base about any topic, entity, event, technology, policy, product, person, company, market, controversy, or emerging concept. Search in both Chinese and English by default for broader international perspective, while producing the final report in the user's language unless requested otherwise.
 ---
 
 # Deep All Research
@@ -16,6 +16,7 @@ Given only a research object from the user, produce a polished local research pa
 - No saved HTML webpage files unless the user explicitly asks for offline webpage archives.
 - A source inventory with credibility, bias, and evidence strength.
 - A clear synthesis that separates verified facts, source claims, interpretations, disputes, impacts, and open questions.
+- A bilingual collection process by default: search Chinese and English sources for broader international perspective, then synthesize them into one integrated report instead of separating by language.
 - A final verification pass before reporting completion.
 
 ## Completion Criteria
@@ -25,10 +26,11 @@ Before final response, verify all of the following:
 1. The output folder exists in the intended location.
 2. Markdown notes exist and are non-empty.
 3. Source links are present as clickable URLs.
-4. There are no local `.html` or `.htm` webpage archives unless explicitly requested.
-5. Attachments are only suitable artifact files, and referenced local attachments exist.
-6. The notes include: overview, source/original-material map, concept explanation, multi-dimensional analysis, external evaluation/disputes, impact analysis, open questions, and source list.
-7. The final answer tells the user what was created, where it is, what was verified, and any limitations.
+4. The source inventory includes both Chinese and English search coverage unless the topic is language-specific or sources genuinely do not exist in one language.
+5. There are no local `.html` or `.htm` webpage archives unless explicitly requested.
+6. Attachments are only suitable artifact files, and referenced local attachments exist.
+7. The notes include: overview, source/original-material map, concept explanation, multi-dimensional analysis, external evaluation/disputes, impact analysis, open questions, and source list.
+8. The final answer tells the user what was created, where it is, what was verified, and any limitations.
 
 ## Workflow
 
@@ -65,13 +67,15 @@ Localize filenames to the user's language when appropriate. For Chinese users, u
 
 ### 2. Form The Research Map
 
-Do an initial broad search to answer:
+Do an initial broad bilingual search to answer:
 
 - What exactly is the object?
-- What names, aliases, spellings, translations, abbreviations, or mistaken names exist?
+- What names, aliases, spellings, translations, abbreviations, or mistaken names exist in Chinese and English?
 - What date range matters?
 - Which sources are primary, authoritative, secondary, commentary, market reaction, or low-quality?
 - Which dimensions matter for this topic?
+
+Build queries in both Chinese and English by default. Use translated names, official English names, romanizations, abbreviations, and likely international terminology. Do not present the final notes as separate "Chinese sources" and "English sources" sections unless that distinction is analytically important; integrate evidence by theme and cite sources naturally.
 
 Then create a research matrix. Use the relevant dimensions only:
 
@@ -90,15 +94,15 @@ Then create a research matrix. Use the relevant dimensions only:
 If subagents are available and the user explicitly allows or requests parallel work, dispatch independent research subtasks. Good splits:
 
 - Primary/original sources and downloadable artifacts.
-- Media commentary and public debate.
+- Chinese-language media commentary and public debate.
+- English-language/international commentary and terminology.
 - Impact analysis by industry, policy, market, technology, or stakeholder.
-- International-language sources and terminology.
 
 Each subagent should return links, dates, source type, summary, credibility, bias risk, and download recommendations. Do not let subagents write into the final folder unless you deliberately assign disjoint files.
 
 ### 4. Source Collection Rules
 
-Always browse the web for current or source-sensitive research. Prioritize:
+Always browse the web for current or source-sensitive research. Search in both Chinese and English unless the user explicitly restricts language or the topic is inherently single-language. Prioritize:
 
 1. Official websites, filings, standards, papers, laws, reports, docs, conference pages.
 2. Original speeches, interviews, transcripts, papers, slides, PDFs, datasets.
@@ -116,6 +120,7 @@ For each important source capture:
 - Key claim.
 - Evidence strength.
 - Bias or limitation.
+- Language and jurisdiction/region when relevant.
 
 Use direct URLs for webpages in Markdown. Do not save webpages as local HTML files by default.
 
@@ -197,7 +202,7 @@ If any check fails, fix it and rerun the check before final response.
 
 ### 9. Final Response
 
-Respond in the user's language. Keep it concise and plain.
+Respond in the user's language. For Chinese users, default to Chinese. Keep it concise and plain.
 
 Include:
 
@@ -205,6 +210,7 @@ Include:
 - The number and type of notes created.
 - The number and type of attachments saved.
 - The most important conclusion or caveat.
+- That bilingual Chinese/English source collection was included, or why one side was limited.
 - What was verified.
 - Any limitations, such as blocked downloads or unavailable primary materials.
 
